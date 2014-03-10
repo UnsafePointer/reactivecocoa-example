@@ -40,8 +40,10 @@
 
 + (RACSignal *)getCountries
 {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     return [[[[[self requestContryData] deliverOn:[RACScheduler mainThreadScheduler]]
               map:^id(NSData *data) {
+                  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                   NSError *error;
                   id results = [NSJSONSerialization JSONObjectWithData:data
                                                                options:0
