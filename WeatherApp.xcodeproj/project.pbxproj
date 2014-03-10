@@ -20,8 +20,9 @@
 		A0576A7C18CDC3BE007C31A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0576A7E18CDC3BE007C31A4 /* InfoPlist.strings */; };
 		A0576A8318CDC43A007C31A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0576A8518CDC43A007C31A4 /* InfoPlist.strings */; };
 		A0576A8918CDC7BE007C31A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0576A8818CDC7BE007C31A4 /* Main.storyboard */; };
-		A0576A8D18CDC845007C31A4 /* WAPCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0576A8C18CDC845007C31A4 /* WAPCitiesViewController.m */; };
 		A0576A9118CDC939007C31A4 /* WAPWeatherAPIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0576A9018CDC939007C31A4 /* WAPWeatherAPIHelper.m */; };
+		A0576A9918CDCA03007C31A4 /* WAPCitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0576A9618CDCA03007C31A4 /* WAPCitiesViewController.m */; };
+		A0576A9A18CDCA03007C31A4 /* WAPCitiesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0576A9818CDCA03007C31A4 /* WAPCitiesViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,10 +53,12 @@
 		A0576A8018CDC418007C31A4 /* WeatherAppTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "WeatherAppTests-Info.plist"; path = "Supporting/WeatherAppTests-Info.plist"; sourceTree = "<group>"; };
 		A0576A8418CDC43A007C31A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A0576A8818CDC7BE007C31A4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Views/Main.storyboard; sourceTree = "<group>"; };
-		A0576A8B18CDC845007C31A4 /* WAPCitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAPCitiesViewController.h; path = Controllers/WAPCitiesViewController.h; sourceTree = "<group>"; };
-		A0576A8C18CDC845007C31A4 /* WAPCitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPCitiesViewController.m; path = Controllers/WAPCitiesViewController.m; sourceTree = "<group>"; };
 		A0576A8F18CDC939007C31A4 /* WAPWeatherAPIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAPWeatherAPIHelper.h; path = Helpers/WAPWeatherAPIHelper.h; sourceTree = "<group>"; };
 		A0576A9018CDC939007C31A4 /* WAPWeatherAPIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPWeatherAPIHelper.m; path = Helpers/WAPWeatherAPIHelper.m; sourceTree = "<group>"; };
+		A0576A9518CDCA03007C31A4 /* WAPCitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAPCitiesViewController.h; path = ViewModels/WAPCitiesViewController.h; sourceTree = "<group>"; };
+		A0576A9618CDCA03007C31A4 /* WAPCitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPCitiesViewController.m; path = ViewModels/WAPCitiesViewController.m; sourceTree = "<group>"; };
+		A0576A9718CDCA03007C31A4 /* WAPCitiesViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAPCitiesViewModel.h; path = ViewModels/WAPCitiesViewModel.h; sourceTree = "<group>"; };
+		A0576A9818CDCA03007C31A4 /* WAPCitiesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPCitiesViewModel.m; path = ViewModels/WAPCitiesViewModel.m; sourceTree = "<group>"; };
 		F07C8E85BE334F028B6C7E2A /* Pods-WeatherApp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.xcconfig"; path = "Pods/Pods-WeatherApp.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				A0576A7118CDC3A1007C31A4 /* Application */,
-				A0576A8A18CDC823007C31A4 /* Controllers */,
+				A0576A8A18CDC823007C31A4 /* ViewModels */,
 				A0576A8E18CDC8C7007C31A4 /* Helpers */,
 				A0576A5418CDC368007C31A4 /* Images.xcassets */,
 				A0576A4918CDC368007C31A4 /* Supporting */,
@@ -174,13 +177,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		A0576A8A18CDC823007C31A4 /* Controllers */ = {
+		A0576A8A18CDC823007C31A4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A0576A8B18CDC845007C31A4 /* WAPCitiesViewController.h */,
-				A0576A8C18CDC845007C31A4 /* WAPCitiesViewController.m */,
+				A0576A9518CDCA03007C31A4 /* WAPCitiesViewController.h */,
+				A0576A9618CDCA03007C31A4 /* WAPCitiesViewController.m */,
+				A0576A9718CDCA03007C31A4 /* WAPCitiesViewModel.h */,
+				A0576A9818CDCA03007C31A4 /* WAPCitiesViewModel.m */,
 			);
-			name = Controllers;
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 		A0576A8E18CDC8C7007C31A4 /* Helpers */ = {
@@ -324,7 +329,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0576A8D18CDC845007C31A4 /* WAPCitiesViewController.m in Sources */,
+				A0576A9A18CDCA03007C31A4 /* WAPCitiesViewModel.m in Sources */,
+				A0576A9918CDCA03007C31A4 /* WAPCitiesViewController.m in Sources */,
 				A0576A7A18CDC3B3007C31A4 /* main.m in Sources */,
 				A0576A9118CDC939007C31A4 /* WAPWeatherAPIHelper.m in Sources */,
 				A0576A7418CDC3AB007C31A4 /* WAPAppDelegate.m in Sources */,
