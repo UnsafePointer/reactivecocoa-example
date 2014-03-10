@@ -34,6 +34,9 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4)
   - libextobjc/UmbrellaHeader (0.4)
+  - Mantle (1.4):
+    - Mantle/extobjc
+  - Mantle/extobjc (1.4)
   - ReactiveCocoa (2.2.4):
     - ReactiveCocoa/Core
     - ReactiveCocoa/no-arc
@@ -44,12 +47,14 @@ PODS:
     - ReactiveCocoa (~> 2.1)
 
 DEPENDENCIES:
-  - libextobjc
-  - ReactiveCocoa
-  - ReactiveViewModel
+  - libextobjc (~> 0.4)
+  - Mantle (~> 1.4)
+  - ReactiveCocoa (~> 2.2)
+  - ReactiveViewModel (~> 0.2)
 
 SPEC CHECKSUMS:
   libextobjc: 2c9fc8226f0f38e562587f65172f93f0c9b4a47a
+  Mantle: de026e86c183c5adfd453c1d8419babb787fea97
   ReactiveCocoa: 953a45dda30674fe704d1d9c77cc874141742f47
   ReactiveViewModel: f636ab3e06b5e69664b69c883fcdb457ab5cb0cb
 

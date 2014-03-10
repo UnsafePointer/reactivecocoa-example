@@ -1,5 +1,5 @@
 //
-//  WAPCitiesViewController.h
+//  WAPCountryCell.h
 //  WeatherApp
 //
 //  Created by Renzo Crisostomo on 10/03/14.
@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WAPCitiesViewController : UITableViewController
+@class WAPCountryModel;
+
+@interface WAPCountryCell : UITableViewCell
+
+@property (nonatomic, strong) WAPCountryModel *countryModel;
 
 @end

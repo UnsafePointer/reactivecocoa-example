@@ -1,5 +1,5 @@
 //
-//  WAPWeatherAPIHelper.h
+//  WAPCitiesViewModel.h
 //  WeatherApp
 //
 //  Created by Renzo Crisostomo on 10/03/14.
@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WAPWeatherAPIHelper : NSObject
+@interface WAPCountriesViewModel : NSObject
 
-+ (RACSignal *)getCountries;
+@property (nonatomic, readonly, strong) NSArray *model;
 
 @end

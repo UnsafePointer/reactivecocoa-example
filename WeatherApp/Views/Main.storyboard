@@ -4,16 +4,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Cities View Controller-->
+        <!--Countries View Controller - Cities-->
         <scene sceneID="994-sO-oIW">
             <objects>
-                <tableViewController id="ukX-ht-Jxn" customClass="WAPCitiesViewController" sceneMemberID="viewController">
+                <tableViewController id="ukX-ht-Jxn" customClass="WAPCountriesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Sek-0T-hbr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9C9-oi-GL4">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CountryCell" id="9C9-oi-GL4" customClass="WAPCountryCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9C9-oi-GL4" id="arx-tJ-1YI">
@@ -27,7 +27,7 @@
                             <outlet property="delegate" destination="ukX-ht-Jxn" id="zT6-TW-KCe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CeF-RN-kqG"/>
+                    <navigationItem key="navigationItem" title="Cities" id="CeF-RN-kqG"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMq-SQ-mQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
