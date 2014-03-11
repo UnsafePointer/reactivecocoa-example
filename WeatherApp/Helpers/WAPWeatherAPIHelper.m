@@ -9,11 +9,14 @@
 #import "WAPWeatherAPIHelper.h"
 #import "WAPTranslatorHelper.h"
 #import "WAPCountryModel.h"
+#import "WAPCityModel.h"
 
 @interface WAPWeatherAPIHelper ()
 
 + (NSURLRequest *)countriesURLRequest;
 + (RACSignal *)requestContryData;
++ (NSURLRequest *)citiesURLRequestWithCountry:(WAPCountryModel *)country;
++ (RACSignal *)requestCityDataWithCountry:(WAPCountryModel *)country;
 
 @end
 
@@ -36,14 +39,25 @@
             }];
 }
 
++ (NSURLRequest *)citiesURLRequestWithCountry:(WAPCountryModel *)country
+{
+    return [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.geonames.org/searchJSON?country=%@&username=WeatherApp", country.countryCode]]];
+}
+
++ (RACSignal *)requestCityDataWithCountry:(WAPCountryModel *)country
+{
+    return [[NSURLConnection rac_sendAsynchronousRequest:[self citiesURLRequestWithCountry:country]]
+            reduceEach:^id(NSURLResponse *response, NSData *data){
+                return data;
+            }];
+}
+
 #pragma mark - Public Methods
 
 + (RACSignal *)getCountries
 {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     return [[[[[self requestContryData] deliverOn:[RACScheduler mainThreadScheduler]]
               map:^id(NSData *data) {
-                  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                   NSError *error;
                   id results = [NSJSONSerialization JSONObjectWithData:data
                                                                options:0
@@ -55,6 +69,25 @@
                                                                         withClass:[WAPCountryModel class]];
                   return countries;
               }]
+             publish]
+            autoconnect];
+}
+
++ (RACSignal *)getCitiesWithCountry:(WAPCountryModel *)country
+{
+    return [[[[[self requestCityDataWithCountry:country] deliverOn:[RACScheduler mainThreadScheduler]]
+            map:^id(NSData *data) {
+                NSError *error;
+                id results = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:0
+                                                               error:&error];
+                if (error) {
+                    return [RACSignal error:error];
+                }
+                id cities = [WAPTranslatorHelper translateCollectionFromJSON:[results objectForKey:@"geonames"]
+                                                                   withClass:[WAPCityModel class]];
+                return cities;
+            }]
              publish]
             autoconnect];
 }

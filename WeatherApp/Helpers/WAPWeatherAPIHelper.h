@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class WAPCountryModel;
+
 @interface WAPWeatherAPIHelper : NSObject
 
 + (RACSignal *)getCountries;
++ (RACSignal *)getCitiesWithCountry:(WAPCountryModel *)country;
 
 @end

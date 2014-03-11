@@ -9,6 +9,8 @@
 #import "WAPCountriesViewController.h"
 #import "WAPCountriesViewModel.h"
 #import "WAPCountryCell.h"
+#import "WAPCitiesViewController.h"
+#import "WAPCitiesViewModel.h"
 
 @interface WAPCountriesViewController ()
 
@@ -39,6 +41,18 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"CitySegue"]) {
+        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+        WAPCountryModel *country = self.viewModel.model[selectedIndexPath.row];
+        WAPCitiesViewModel *citiesViewModel = [[WAPCitiesViewModel alloc] initWithCountry:country];
+        WAPCitiesViewController *destination = [segue destinationViewController];
+        destination.viewModel = citiesViewModel;
+    }
 }
 
 #pragma mark - UITableViewDataSource
