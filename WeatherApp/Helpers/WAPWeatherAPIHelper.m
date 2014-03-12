@@ -72,8 +72,8 @@
 
 + (RACSignal *)getCountries
 {
-    return [[[[[self requestContryData] deliverOn:[RACScheduler mainThreadScheduler]]
-              map:^id(NSData *data) {
+    return [[[[self requestContryData] deliverOn:[RACScheduler mainThreadScheduler]]
+             map:^id(NSData *data) {
                   NSError *error;
                   id results = [NSJSONSerialization JSONObjectWithData:data
                                                                options:0
@@ -85,13 +85,12 @@
                                                                         withClass:[WAPCountryModel class]];
                   return countries;
               }]
-             publish]
-            autoconnect];
+            replayLazily];
 }
 
 + (RACSignal *)getCitiesWithCountry:(WAPCountryModel *)country
 {
-    return [[[[[self requestCityDataWithCountry:country] deliverOn:[RACScheduler mainThreadScheduler]]
+    return [[[[self requestCityDataWithCountry:country] deliverOn:[RACScheduler mainThreadScheduler]]
             map:^id(NSData *data) {
                 NSError *error;
                 id results = [NSJSONSerialization JSONObjectWithData:data
@@ -104,14 +103,13 @@
                                                                    withClass:[WAPCityModel class]];
                 return cities;
             }]
-             publish]
-            autoconnect];
+            replayLazily];
 }
 
 + (RACSignal *)getStationsWithCity:(WAPCityModel *)city
 {
-    return [[[[[self requestStationsDataWithCity:city] deliverOn:[RACScheduler mainThreadScheduler]]
-              map:^id(NSData *data) {
+    return [[[[self requestStationsDataWithCity:city] deliverOn:[RACScheduler mainThreadScheduler]]
+             map:^id(NSData *data) {
                   NSError *error;
                   id results = [NSJSONSerialization JSONObjectWithData:data
                                                                options:0
@@ -122,9 +120,8 @@
                   id cities = [WAPTranslatorHelper translateCollectionFromJSON:[results objectForKey:@"list"]
                                                                      withClass:[WAPStationModel class]];
                   return cities;
-              }]
-             publish]
-            autoconnect];
+             }]
+            replayLazily];
 }
 
 @end
