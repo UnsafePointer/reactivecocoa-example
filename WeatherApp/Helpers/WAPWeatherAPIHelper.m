@@ -70,9 +70,9 @@
             config.responseSerializer = [AFJSONResponseSerializer serializer];
         }];
         [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSArray *countries = [WAPTranslatorHelper translateCollectionFromJSON:[responseObject objectForKey:@"geonames"]
+            NSArray *cities = [WAPTranslatorHelper translateCollectionFromJSON:[responseObject objectForKey:@"geonames"]
                                                                         withClass:[WAPCityModel class]];
-            [[RACSignal return:countries] subscribe:subscriber];
+            [[RACSignal return:cities] subscribe:subscriber];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [subscriber sendError:error];
         }];
