@@ -8,7 +8,6 @@
 
 #import "WAPCitiesViewModel.h"
 #import "WAPWeatherAPIHelper.h"
-#import "WAPCountryModel.h"
 
 @interface WAPCitiesViewModel ()
 

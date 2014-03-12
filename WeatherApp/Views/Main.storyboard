@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Countries View Controller - Cities-->
+        <!--Countries View Controller - Countries-->
         <scene sceneID="994-sO-oIW">
             <objects>
                 <tableViewController id="ukX-ht-Jxn" customClass="WAPCountriesViewController" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="ukX-ht-Jxn" id="zT6-TW-KCe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cities" id="CeF-RN-kqG"/>
+                    <navigationItem key="navigationItem" title="Countries" id="CeF-RN-kqG"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMq-SQ-mQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,13 +45,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityCell" id="rEa-xu-T3L" customClass="WAPCityCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityCell" id="rEa-xu-T3L" customClass="WAPCityCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rEa-xu-T3L" id="HQe-Zt-9w4">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Fhl-tR-hAL" kind="push" identifier="StationSegue" id="svz-6M-sEm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -64,6 +67,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTz-JA-6Ju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1442" y="176"/>
+        </scene>
+        <!--Stations View Controller - Stations-->
+        <scene sceneID="olr-el-LE3">
+            <objects>
+                <tableViewController id="Fhl-tR-hAL" customClass="WAPStationsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5et-q7-ZCf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StationCell" id="7Uf-aH-pQK" customClass="WAPStationCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Uf-aH-pQK" id="x08-5s-JuY">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Fhl-tR-hAL" id="GDd-uA-zsm"/>
+                            <outlet property="delegate" destination="Fhl-tR-hAL" id="5am-Fz-qDD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Stations" id="nYX-Zg-QJQ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="78q-TZ-Hky" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902" y="176"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TsA-H5-5Bh">

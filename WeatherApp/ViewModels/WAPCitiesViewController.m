@@ -9,6 +9,8 @@
 #import "WAPCitiesViewController.h"
 #import "WAPCitiesViewModel.h"
 #import "WAPCityCell.h"
+#import "WAPStationsViewModel.h"
+#import "WAPStationsViewController.h"
 
 @interface WAPCitiesViewController ()
 
@@ -30,6 +32,30 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"StationSegue"]) {
+        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+        WAPCityModel *city = self.viewModel.model[selectedIndexPath.row];
+        WAPStationsViewModel *stationsViewModel = [[WAPStationsViewModel alloc] initWithCity:city];
+        WAPStationsViewController *destination = [segue destinationViewController];
+        destination.viewModel = stationsViewModel;
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.viewModel.active = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.viewModel.active = NO;
 }
 
 #pragma mark - UITableViewDataSource

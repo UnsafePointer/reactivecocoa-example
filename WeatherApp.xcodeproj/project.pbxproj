@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		10235FCF78C54DDFAC7FAAEF /* libPods-WeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A04210C8D694CBCB278EB14 /* libPods-WeatherApp.a */; };
+		A0467FD918D0448E0027BA8A /* WAPStationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0467FD818D0448E0027BA8A /* WAPStationsViewController.m */; };
+		A0467FDC18D044E20027BA8A /* WAPStationsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0467FDB18D044E20027BA8A /* WAPStationsViewModel.m */; };
+		A0467FDF18D045710027BA8A /* WAPStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0467FDE18D045710027BA8A /* WAPStationCell.m */; };
+		A0467FE218D045F50027BA8A /* WAPStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0467FE118D045F50027BA8A /* WAPStationModel.m */; };
 		A0576A4318CDC368007C31A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0576A4218CDC368007C31A4 /* Foundation.framework */; };
 		A0576A4518CDC368007C31A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0576A4418CDC368007C31A4 /* CoreGraphics.framework */; };
 		A0576A4718CDC368007C31A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0576A4618CDC368007C31A4 /* UIKit.framework */; };
@@ -44,6 +48,14 @@
 
 /* Begin PBXFileReference section */
 		1A04210C8D694CBCB278EB14 /* libPods-WeatherApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0467FD718D0448E0027BA8A /* WAPStationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAPStationsViewController.h; path = ViewModels/WAPStationsViewController.h; sourceTree = "<group>"; };
+		A0467FD818D0448E0027BA8A /* WAPStationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPStationsViewController.m; path = ViewModels/WAPStationsViewController.m; sourceTree = "<group>"; };
+		A0467FDA18D044E20027BA8A /* WAPStationsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAPStationsViewModel.h; path = ViewModels/WAPStationsViewModel.h; sourceTree = "<group>"; };
+		A0467FDB18D044E20027BA8A /* WAPStationsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPStationsViewModel.m; path = ViewModels/WAPStationsViewModel.m; sourceTree = "<group>"; };
+		A0467FDD18D045710027BA8A /* WAPStationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAPStationCell.h; path = Views/WAPStationCell.h; sourceTree = "<group>"; };
+		A0467FDE18D045710027BA8A /* WAPStationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPStationCell.m; path = Views/WAPStationCell.m; sourceTree = "<group>"; };
+		A0467FE018D045F50027BA8A /* WAPStationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAPStationModel.h; path = Models/WAPStationModel.h; sourceTree = "<group>"; };
+		A0467FE118D045F50027BA8A /* WAPStationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPStationModel.m; path = Models/WAPStationModel.m; sourceTree = "<group>"; };
 		A0576A3F18CDC368007C31A4 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0576A4218CDC368007C31A4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A0576A4418CDC368007C31A4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,6 +120,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0467FD618D044480027BA8A /* Stations */ = {
+			isa = PBXGroup;
+			children = (
+				A0467FD718D0448E0027BA8A /* WAPStationsViewController.h */,
+				A0467FD818D0448E0027BA8A /* WAPStationsViewController.m */,
+				A0467FDA18D044E20027BA8A /* WAPStationsViewModel.h */,
+				A0467FDB18D044E20027BA8A /* WAPStationsViewModel.m */,
+			);
+			name = Stations;
+			sourceTree = "<group>";
+		};
 		A0576A3618CDC368007C31A4 = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +222,8 @@
 				A0576AA418CDE137007C31A4 /* WAPCountryCell.m */,
 				A0731E5918CF0A2600763AC5 /* WAPCityCell.h */,
 				A0731E5A18CF0A2600763AC5 /* WAPCityCell.m */,
+				A0467FDD18D045710027BA8A /* WAPStationCell.h */,
+				A0467FDE18D045710027BA8A /* WAPStationCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -208,6 +233,7 @@
 			children = (
 				A0731E5418CF08A200763AC5 /* Countries */,
 				A0731E5518CF08AA00763AC5 /* Cities */,
+				A0467FD618D044480027BA8A /* Stations */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -230,6 +256,8 @@
 				A0576A9E18CDCED4007C31A4 /* WAPCountryModel.m */,
 				A0731E5C18CF0A7900763AC5 /* WAPCityModel.h */,
 				A0731E5D18CF0A7900763AC5 /* WAPCityModel.m */,
+				A0467FE018D045F50027BA8A /* WAPStationModel.h */,
+				A0467FE118D045F50027BA8A /* WAPStationModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -389,9 +417,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0731E5818CF095900763AC5 /* WAPCitiesViewModel.m in Sources */,
+				A0467FD918D0448E0027BA8A /* WAPStationsViewController.m in Sources */,
+				A0467FDF18D045710027BA8A /* WAPStationCell.m in Sources */,
 				A0576A9A18CDCA03007C31A4 /* WAPCountriesViewModel.m in Sources */,
 				A0576A9918CDCA03007C31A4 /* WAPCountriesViewController.m in Sources */,
+				A0467FDC18D044E20027BA8A /* WAPStationsViewModel.m in Sources */,
 				A0576A7A18CDC3B3007C31A4 /* main.m in Sources */,
+				A0467FE218D045F50027BA8A /* WAPStationModel.m in Sources */,
 				A0731E5B18CF0A2600763AC5 /* WAPCityCell.m in Sources */,
 				A0731E5318CF086100763AC5 /* WAPCitiesViewController.m in Sources */,
 				A0576A9F18CDCED4007C31A4 /* WAPCountryModel.m in Sources */,
