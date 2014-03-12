@@ -51,7 +51,8 @@
         [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSArray *countries = [WAPTranslatorHelper translateCollectionFromJSON:[responseObject objectForKey:@"geonames"]
                                                                         withClass:[WAPCountryModel class]];
-            [[RACSignal return:countries] subscribe:subscriber];
+            [subscriber sendNext:countries];
+            [subscriber sendCompleted];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [subscriber sendError:error];
         }];
@@ -72,7 +73,8 @@
         [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSArray *cities = [WAPTranslatorHelper translateCollectionFromJSON:[responseObject objectForKey:@"geonames"]
                                                                         withClass:[WAPCityModel class]];
-            [[RACSignal return:cities] subscribe:subscriber];
+            [subscriber sendNext:cities];
+            [subscriber sendCompleted];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [subscriber sendError:error];
         }];
@@ -93,7 +95,8 @@
         [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSArray *stations = [WAPTranslatorHelper translateCollectionFromJSON:[responseObject objectForKey:@"list"]
                                                                        withClass:[WAPStationModel class]];
-            [[RACSignal return:stations] subscribe:subscriber];
+            [subscriber sendNext:stations];
+            [subscriber sendCompleted];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [subscriber sendError:error];
         }];
