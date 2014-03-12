@@ -9,6 +9,7 @@
 #import "WAPStationsViewController.h"
 #import "WAPStationsViewModel.h"
 #import "WAPStationCell.h"
+#import "WAPStationDetailsViewController.h"
 
 @interface WAPStationsViewController ()
 
@@ -30,6 +31,17 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"DetailsSegue"]) {
+        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+        WAPStationModel *station = self.viewModel.model[selectedIndexPath.row];
+        WAPStationDetailsViewController *destination = [segue destinationViewController];
+        destination.station = station;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

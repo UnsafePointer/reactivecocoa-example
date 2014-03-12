@@ -12,6 +12,7 @@
 		A0467FDC18D044E20027BA8A /* WAPStationsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0467FDB18D044E20027BA8A /* WAPStationsViewModel.m */; };
 		A0467FDF18D045710027BA8A /* WAPStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0467FDE18D045710027BA8A /* WAPStationCell.m */; };
 		A0467FE218D045F50027BA8A /* WAPStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0467FE118D045F50027BA8A /* WAPStationModel.m */; };
+		A0467FE618D04E430027BA8A /* WAPStationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0467FE518D04E430027BA8A /* WAPStationDetailsViewController.m */; };
 		A0576A4318CDC368007C31A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0576A4218CDC368007C31A4 /* Foundation.framework */; };
 		A0576A4518CDC368007C31A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0576A4418CDC368007C31A4 /* CoreGraphics.framework */; };
 		A0576A4718CDC368007C31A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0576A4618CDC368007C31A4 /* UIKit.framework */; };
@@ -56,6 +57,8 @@
 		A0467FDE18D045710027BA8A /* WAPStationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPStationCell.m; path = Views/WAPStationCell.m; sourceTree = "<group>"; };
 		A0467FE018D045F50027BA8A /* WAPStationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAPStationModel.h; path = Models/WAPStationModel.h; sourceTree = "<group>"; };
 		A0467FE118D045F50027BA8A /* WAPStationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPStationModel.m; path = Models/WAPStationModel.m; sourceTree = "<group>"; };
+		A0467FE418D04E430027BA8A /* WAPStationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WAPStationDetailsViewController.h; path = ViewModels/WAPStationDetailsViewController.h; sourceTree = "<group>"; };
+		A0467FE518D04E430027BA8A /* WAPStationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WAPStationDetailsViewController.m; path = ViewModels/WAPStationDetailsViewController.m; sourceTree = "<group>"; };
 		A0576A3F18CDC368007C31A4 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0576A4218CDC368007C31A4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A0576A4418CDC368007C31A4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +132,15 @@
 				A0467FDB18D044E20027BA8A /* WAPStationsViewModel.m */,
 			);
 			name = Stations;
+			sourceTree = "<group>";
+		};
+		A0467FE318D04E2C0027BA8A /* StationDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A0467FE418D04E430027BA8A /* WAPStationDetailsViewController.h */,
+				A0467FE518D04E430027BA8A /* WAPStationDetailsViewController.m */,
+			);
+			name = StationDetails;
 			sourceTree = "<group>";
 		};
 		A0576A3618CDC368007C31A4 = {
@@ -234,6 +246,7 @@
 				A0731E5418CF08A200763AC5 /* Countries */,
 				A0731E5518CF08AA00763AC5 /* Cities */,
 				A0467FD618D044480027BA8A /* Stations */,
+				A0467FE318D04E2C0027BA8A /* StationDetails */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -421,6 +434,7 @@
 				A0467FDF18D045710027BA8A /* WAPStationCell.m in Sources */,
 				A0576A9A18CDCA03007C31A4 /* WAPCountriesViewModel.m in Sources */,
 				A0576A9918CDCA03007C31A4 /* WAPCountriesViewController.m in Sources */,
+				A0467FE618D04E430027BA8A /* WAPStationDetailsViewController.m in Sources */,
 				A0467FDC18D044E20027BA8A /* WAPStationsViewModel.m in Sources */,
 				A0576A7A18CDC3B3007C31A4 /* main.m in Sources */,
 				A0467FE218D045F50027BA8A /* WAPStationModel.m in Sources */,
