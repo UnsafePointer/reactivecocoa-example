@@ -17,4 +17,5 @@
     #import <Mantle/Mantle.h>
     #import <libextobjc/EXTScope.h>
     #import <ReactiveViewModel/ReactiveViewModel.h>
+    #import <AFNetworking/AFNetworking.h>
 #endif
