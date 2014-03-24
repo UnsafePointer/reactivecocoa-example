@@ -32,10 +32,26 @@
     [super viewDidLoad];
     
     @weakify(self);
-    [RACObserve(self.viewModel, model) subscribeNext:^(id x) {
+    [[RACObserve(self.viewModel, model) deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
         @strongify(self);
         [self.tableView reloadData];
     }];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [[refreshControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
+        @strongify(self);
+        [[[self.viewModel getCountriesSignal] deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(NSArray *cities) {
+            self.viewModel.model = cities;
+        } error:^(NSError *error) {
+            @strongify(self);
+            [[self refreshControl] endRefreshing];
+        } completed:^{
+            @strongify(self);
+            [[self refreshControl] endRefreshing];
+        }];
+    }];
+    [self setRefreshControl:refreshControl];
+
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,8 +11,6 @@
 
 @interface WAPCountriesViewModel ()
 
-- (RACSignal *)getCountriesSignal;
-
 @end
 
 @implementation WAPCountriesViewModel

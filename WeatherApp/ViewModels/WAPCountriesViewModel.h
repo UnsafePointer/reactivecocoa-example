@@ -10,6 +10,8 @@
 
 @interface WAPCountriesViewModel : RVMViewModel
 
-@property (nonatomic, readonly, strong) NSArray *model;
+@property (nonatomic, strong) NSArray *model;
+
+- (RACSignal *)getCountriesSignal;
 
 @end
