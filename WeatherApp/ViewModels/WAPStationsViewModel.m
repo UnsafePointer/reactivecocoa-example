@@ -11,7 +11,8 @@
 
 @interface WAPStationsViewModel ()
 
-- (RACSignal *)getStationsSignalWithCity:(WAPCityModel *)city;
+@property (nonatomic, strong, readwrite) NSArray *model;
+@property (nonatomic, strong, readwrite) RACCommand *loadStationsCommand;
 
 @end
 
@@ -24,16 +25,17 @@
 - (id)initWithCity:(WAPCityModel *)city;
 {
     if (self = [super init]) {
-        RAC(self, model) = [self getStationsSignalWithCity:city];
+        @weakify(self);
+        self.loadStationsCommand = [[RACCommand alloc] initWithSignalBlock:^(id value) {
+            return [[[WAPWeatherAPIHelper getStationsWithCity:city] logError] catchTo:[RACSignal empty]];
+        }];
+        RAC(self, model) = [self.loadStationsCommand.executionSignals switchToLatest];
+        [[RACObserve(self, active) take:1] subscribeNext:^(id x) {
+            @strongify(self);
+            [self.loadStationsCommand execute:nil];
+        }];
     }
     return self;
-}
-
-#pragma mark - Private Methods
-
-- (RACSignal *)getStationsSignalWithCity:(WAPCityModel *)city
-{
-    return [[[WAPWeatherAPIHelper getStationsWithCity:city] logError] catchTo:[RACSignal empty]];
 }
 
 @end

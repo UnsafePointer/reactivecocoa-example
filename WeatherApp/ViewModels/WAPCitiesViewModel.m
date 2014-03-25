@@ -11,7 +11,8 @@
 
 @interface WAPCitiesViewModel ()
 
-- (RACSignal *)getCitiesSignalWithCountry:(WAPCountryModel *)country;
+@property (nonatomic, strong, readwrite) NSArray *model;
+@property (nonatomic, strong, readwrite) RACCommand *loadCitiesCommand;
 
 @end
 
@@ -24,16 +25,17 @@
 - (id)initWithCountry:(WAPCountryModel *)country
 {
     if (self = [super init]) {
-        RAC(self, model) = [self getCitiesSignalWithCountry:country];
+        @weakify(self);
+        self.loadCitiesCommand = [[RACCommand alloc] initWithSignalBlock:^(id value) {
+            return [[[WAPWeatherAPIHelper getCitiesWithCountry:country] logError] catchTo:[RACSignal empty]];
+        }];
+        RAC(self, model) = [self.loadCitiesCommand.executionSignals switchToLatest];
+        [[RACObserve(self, active) take:1] subscribeNext:^(id x) {
+            @strongify(self);
+            [self.loadCitiesCommand execute:nil];
+        }];
     }
     return self;
-}
-
-#pragma mark - Private Methods
-
-- (RACSignal *)getCitiesSignalWithCountry:(WAPCountryModel *)country
-{
-    return [[[WAPWeatherAPIHelper getCitiesWithCountry:country] logError] catchTo:[RACSignal empty]];
 }
 
 @end

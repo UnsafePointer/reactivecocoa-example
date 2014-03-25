@@ -11,7 +11,6 @@
 #import "WAPCountryCell.h"
 #import "WAPCitiesViewController.h"
 #import "WAPCitiesViewModel.h"
-#import <ReactiveCocoa/UIRefreshControl+RACCommandSupport.h>
 
 @interface WAPCountriesViewController ()
 

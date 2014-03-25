@@ -25,11 +25,13 @@
 - (id)init
 {
     if (self = [super init]) {
+        @weakify(self);
         self.loadCountriesCommand = [[RACCommand alloc] initWithSignalBlock:^(id value) {
             return [[[WAPWeatherAPIHelper getCountries] logError] catchTo:[RACSignal empty]];
         }];
         RAC(self, model) = [self.loadCountriesCommand.executionSignals switchToLatest];
         [[RACObserve(self, active) take:1] subscribeNext:^(id x) {
+            @strongify(self);
             [self.loadCountriesCommand execute:nil];
         }];
     }

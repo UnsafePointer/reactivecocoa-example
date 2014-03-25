@@ -12,7 +12,8 @@
 
 @interface WAPStationsViewModel : RVMViewModel
 
-@property (nonatomic, readonly, strong) NSArray *model;
+@property (nonatomic, strong, readonly) NSArray *model;
+@property (nonatomic, strong, readonly) RACCommand *loadStationsCommand;
 
 - (id)initWithCity:(WAPCityModel *)city;
 

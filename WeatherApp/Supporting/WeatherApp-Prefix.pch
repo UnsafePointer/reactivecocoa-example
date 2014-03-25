@@ -18,4 +18,5 @@
     #import <libextobjc/EXTScope.h>
     #import <ReactiveViewModel/ReactiveViewModel.h>
     #import <AFNetworking/AFNetworking.h>
+    #import <ReactiveCocoa/UIRefreshControl+RACCommandSupport.h>
 #endif

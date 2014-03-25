@@ -27,6 +27,11 @@
         @strongify(self);
         [self.tableView reloadData];
     }];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.rac_command = self.viewModel.loadCitiesCommand;
+    [self setRefreshControl:refreshControl];
+    
 }
 
 - (void)didReceiveMemoryWarning

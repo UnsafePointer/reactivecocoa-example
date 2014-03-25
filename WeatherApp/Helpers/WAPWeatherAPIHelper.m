@@ -72,7 +72,7 @@
         }];
         [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSArray *cities = [WAPTranslatorHelper translateCollectionFromJSON:[responseObject objectForKey:@"geonames"]
-                                                                        withClass:[WAPCityModel class]];
+                                                                     withClass:[WAPCityModel class]];
             [subscriber sendNext:cities];
             [subscriber sendCompleted];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

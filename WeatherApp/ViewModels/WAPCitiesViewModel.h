@@ -12,7 +12,8 @@
 
 @interface WAPCitiesViewModel : RVMViewModel
 
-@property (nonatomic, readonly, strong) NSArray *model;
+@property (nonatomic, strong, readonly) NSArray *model;
+@property (nonatomic, strong, readonly) RACCommand *loadCitiesCommand;
 
 - (id)initWithCountry:(WAPCountryModel *)country;
 
