@@ -21,4 +21,9 @@
     return YES;
 }
 
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+}
+
 @end

@@ -33,7 +33,9 @@
     if (configuration) {
         configuration(requestOperationConfig);
     }
-    NSURLRequest *request = [NSURLRequest requestWithURL:[requestOperationConfig URL]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[requestOperationConfig URL]
+                                             cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                         timeoutInterval:30.0f];
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     requestOperation.responseSerializer = requestOperationConfig.responseSerializer;
     return requestOperation;
