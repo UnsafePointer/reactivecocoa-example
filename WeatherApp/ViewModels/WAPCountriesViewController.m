@@ -21,7 +21,8 @@
 
 @implementation WAPCountriesViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
     if (self = [super initWithCoder:aDecoder]) {
         self.viewModel = [[WAPCountriesViewModel alloc] init];
     }
@@ -33,7 +34,7 @@
     [super viewDidLoad];
     
     @weakify(self);
-    [[RACObserve(self.viewModel, model) deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
+    [RACObserve(self.viewModel, model) subscribeNext:^(id x) {
         @strongify(self);
         [self.tableView reloadData];
     }];

@@ -22,12 +22,16 @@
 
 #pragma mark - Public Methods
 
-- (id)init {
+- (id)init
+{
     if (self = [super init]) {
         self.loadCountriesCommand = [[RACCommand alloc] initWithSignalBlock:^(id value) {
             return [[[WAPWeatherAPIHelper getCountries] logError] catchTo:[RACSignal empty]];
         }];
         RAC(self, model) = [self.loadCountriesCommand.executionSignals switchToLatest];
+        [[RACObserve(self, active) take:1] subscribeNext:^(id x) {
+            [self.loadCountriesCommand execute:nil];
+        }];
     }
     return self;
 }
