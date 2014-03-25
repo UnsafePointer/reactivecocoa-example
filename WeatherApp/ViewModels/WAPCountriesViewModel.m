@@ -11,6 +11,9 @@
 
 @interface WAPCountriesViewModel ()
 
+@property (nonatomic, strong, readwrite) NSArray *model;
+@property (nonatomic, strong, readwrite) RACCommand *loadCountriesCommand;
+
 @end
 
 @implementation WAPCountriesViewModel
@@ -21,16 +24,12 @@
 
 - (id)init {
     if (self = [super init]) {
-        RAC(self, model) = [self getCountriesSignal];
+        self.loadCountriesCommand = [[RACCommand alloc] initWithSignalBlock:^(id value) {
+            return [[[WAPWeatherAPIHelper getCountries] logError] catchTo:[RACSignal empty]];
+        }];
+        RAC(self, model) = [self.loadCountriesCommand.executionSignals switchToLatest];
     }
     return self;
-}
-
-#pragma mark - Private Methods
-
-- (RACSignal *)getCountriesSignal
-{
-    return [[[WAPWeatherAPIHelper getCountries] logError] catchTo:[RACSignal empty]];
 }
 
 @end

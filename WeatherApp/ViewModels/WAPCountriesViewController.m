@@ -11,6 +11,7 @@
 #import "WAPCountryCell.h"
 #import "WAPCitiesViewController.h"
 #import "WAPCitiesViewModel.h"
+#import <ReactiveCocoa/UIRefreshControl+RACCommandSupport.h>
 
 @interface WAPCountriesViewController ()
 
@@ -38,18 +39,7 @@
     }];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [[refreshControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
-        @strongify(self);
-        [[[self.viewModel getCountriesSignal] deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(NSArray *cities) {
-            self.viewModel.model = cities;
-        } error:^(NSError *error) {
-            @strongify(self);
-            [[self refreshControl] endRefreshing];
-        } completed:^{
-            @strongify(self);
-            [[self refreshControl] endRefreshing];
-        }];
-    }];
+    refreshControl.rac_command = self.viewModel.loadCountriesCommand;
     [self setRefreshControl:refreshControl];
 
 }
